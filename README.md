@@ -155,7 +155,7 @@ Keep the code straightforward, with short functions and comments where needed. I
 I also had a second AI build the same tool and compared the two. Its hand-written Excel parser mis-reads empty cells like `<c r="I3" s="7"/>`: clearing one owner cell shifted that row's columns and the tool still exited 0. I kept the `exceljs` reader and borrowed its delivery-tracking and `--check` ideas, rewritten so I can explain each line.
 
 ## Weekly run and limits
-`.github/workflows/weekly-report.yml` runs the tests, runs the tool and commits `reports/` and `snapshots/` back to the repo every Friday at 10:30 UTC (16:00 IST). It can also be started by hand from the Actions tab. **Status: not yet confirmed; I will only call it active after one green manual run.** (Replace this line with the result.)
+`.github/workflows/weekly-report.yml` runs the tests, runs the tool and commits `reports/` and `snapshots/` back to the repo every Friday at 10:30 UTC (16:00 IST). It can also be started by hand from the Actions tab. **Status:** It ran green on 5 Nov via the manual trigger.
 
 Limits: it runs on a tracker I keep in the repo, not a live Jira or Sheets connection. It does not send email; sending stays a human step, deliberately. Gate status is typed by a person, so the tool is only as honest as that input.
 
