@@ -1,0 +1,12 @@
+project,gate_id,gate,required,status,blocking,owner,due_date,evidence
+Kavach,K1,New telephone-provider addresses approved in writing by the client network team,Yes,Pending,Yes,Dev,2026-11-12,Requested Mon 9 Nov 10:00
+Kavach,K2,0 wrong EMI amounts in the final 50 calls and cause explained,Yes,Pending,Yes,Meera,2026-11-13,
+Kavach,K3,0 stopped calls in 20 calls past 40 seconds and cause explained,Yes,Pending,Yes,Meera,2026-11-13,
+Kavach,K4,UAT signed in writing by the client CTO with no open critical or high defect,Yes,Pending,Yes,TPM,2026-11-13,
+Kavach,K5,Monitoring and alerts working and rollback switch tested,Yes,Pending,Yes,Dev,2026-11-13,
+Kavach,K6,Test-call cost 40% over budget: cause explained and accepted in writing by the Group CTO or brought inside budget,Yes,Pending,Yes,Dev,2026-11-11,
+Kavach,K7,Cover for go-live week confirmed (Arjun Dev Sana),Yes,Pending,Yes,TPM,2026-11-12,
+Ledger,L1,Dry-run duplicate report approved by the COO,Yes,Pending,Yes,Arjun,2026-11-10,
+Ledger,L2,50-record sample approved by the COO,Yes,Pending,Yes,Arjun,2026-11-10,
+Ledger,L3,Duplicate count after the fix shown to the COO,Yes,Pending,Yes,Arjun,2026-11-11,
+Ledger,L4,Decision on the WhatsApp change request,No,Pending,No,TPM,2026-11-11,

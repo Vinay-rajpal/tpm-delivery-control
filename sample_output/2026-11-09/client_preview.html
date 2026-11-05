@@ -1,0 +1,70 @@
+<!doctype html><html lang='en'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>Client report preview</title><style>
+:root{--bg:#f4f5f7;--card:#fff;--ink:#101828;--mut:#5b6678;--line:#e4e7ec;--soft:#f9fafb;
+--red:#d92d20;--redbg:#fef3f2;--amb:#b54708;--ambbg:#fffaeb;--grn:#067647;--grnbg:#ecfdf3;--acc:#3538cd;--accbg:#eef0ff}
+@media(prefers-color-scheme:dark){:root{--bg:#0c111d;--card:#161b26;--ink:#f5f5f6;--mut:#a4adbd;--line:#2a3140;--soft:#1c2230;
+--red:#f97066;--redbg:#3a1614;--amb:#fdb022;--ambbg:#3a2a0b;--grn:#47cd89;--grnbg:#0f2a1c;--acc:#9ea5ff;--accbg:#1f2150}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 -apple-system,"Segoe UI",Inter,Arial,sans-serif}
+.wrap{max-width:1240px;margin:0 auto;padding:22px 16px 48px}
+header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+h1{font-size:24px;letter-spacing:-.02em;margin:0}.sub{color:var(--mut);margin-top:2px}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:99px;background:var(--accbg);color:var(--acc);font-weight:600;font-size:12.5px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:14px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;border-left:4px solid var(--line)}
+.kpi b{display:block;font-size:28px;letter-spacing:-.02em;line-height:1.1}.kpi span{color:var(--mut);font-size:12.5px}
+.kpi.red{border-left-color:var(--red)}.kpi.amb{border-left-color:var(--amb)}.kpi.grn{border-left-color:var(--grn)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 1px 2px rgba(16,24,40,.04)}
+.top{margin-bottom:14px}.top ol{margin:6px 0 0;padding-left:20px}.top li{margin:5px 0}
+nav{display:flex;gap:8px;margin:0 0 14px;flex-wrap:wrap}
+nav button{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:6px 16px;border-radius:99px;font-weight:600}
+nav button.on{background:var(--ink);color:var(--card);border-color:var(--ink)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(460px,1fr));gap:14px;align-items:start}
+h2{font-size:20px;margin:0;letter-spacing:-.01em}h3{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);margin:18px 0 8px}
+.mut{color:var(--mut)}.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.chip{display:inline-block;padding:2px 10px;border-radius:99px;font-size:12px;font-weight:600;border:1px solid transparent}
+.Red,.NO-GO,.Fail,.Blocked,.c-red{color:var(--red);background:var(--redbg)}.Amber,.REVIEW,.Pending,.c-amb{color:var(--amb);background:var(--ambbg)}
+.Green,.GO,.Pass,.c-grn{color:var(--grn);background:var(--grnbg)}.c-acc,.Generated{color:var(--acc);background:var(--accbg)}.Reviewed{color:var(--amb);background:var(--ambbg)}.Sent{color:var(--grn);background:var(--grnbg)}
+.vrow{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center}
+.verdict{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:10px 14px;text-align:center;min-width:130px}
+.verdict svg{width:84px;height:84px}.verdict .v{font-size:20px;font-weight:800;letter-spacing:.02em}
+.ring-bg{stroke:var(--line)}.ring-fg{stroke:var(--grn);stroke-linecap:round}
+.gates{display:flex;flex-wrap:wrap;gap:6px}
+button.g,button.id{font:inherit;cursor:pointer}
+button.g{border:1px solid transparent;padding:3px 10px;border-radius:8px;font-weight:700;font-size:12px}
+button.g.opt{border-style:dashed;border-color:var(--mut)}
+.mx{display:grid;grid-template-columns:62px repeat(3,1fr);gap:4px;font-size:11.5px}
+.mx .h{color:var(--mut);text-align:center;align-self:end;padding-bottom:2px}.mx .l{color:var(--mut);align-self:center;text-align:right;padding-right:6px}
+.cell{min-height:50px;border-radius:8px;padding:4px;display:flex;flex-wrap:wrap;gap:3px;align-content:center;justify-content:center}
+.s1,.s2{background:var(--grnbg)}.s3,.s4{background:var(--ambbg)}.s6{background:#fcd9b6}.s9{background:#f9b4ad}
+@media(prefers-color-scheme:dark){.s6{background:#5b3a14}.s9{background:#6b1f1a}}
+.id{background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:0 6px;font-weight:700;font-size:11.5px}
+.esc{border:1px solid var(--line);border-left:4px solid var(--red);border-radius:10px;padding:8px 12px;margin-bottom:8px;background:var(--soft)}
+.esc p{margin:3px 0 0}.chg{display:flex;gap:6px;flex-wrap:wrap}.none{color:var(--mut);padding:4px 0}
+a{color:var(--acc);font-weight:600}
+#tip{position:fixed;z-index:9;max-width:340px;background:var(--ink);color:var(--card);padding:10px 12px;border-radius:10px;font-size:12.5px;box-shadow:0 8px 24px rgba(0,0,0,.25);display:none}
+button:focus-visible,a:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+@media(max-width:560px){.cols{grid-template-columns:1fr}.vrow{grid-template-columns:1fr}}
+@media print{nav,#tip{display:none}.card{break-inside:avoid;box-shadow:none}.proj{display:block!important}}
+.doc{max-width:760px;margin:0 auto 18px}.doc h1{font-size:22px}.doc h2{font-size:17px;margin-top:18px}
+.doc table{border-collapse:collapse;width:100%;font-size:13px}.doc th,.doc td{border:1px solid var(--line);padding:6px 8px;text-align:left}.doc th{background:var(--soft)}
+.banner{max-width:760px;margin:0 auto 14px;padding:10px 14px;border-radius:10px;background:var(--ambbg);color:var(--amb);font-weight:600}
+</style></head><body><div class='wrap'><div class='banner'>PREVIEW for review. Check it as the client will read it, then run: node delivery.js mark 2026-11-09 PROJECT Reviewed</div><section class='card doc' id='Kavach'><h1>Weekly status: Kavach (Nirmal Finance)</h1>
+<p>Report date: Mon 09 Nov 2026</p>
+<p><b>Status: RED</b></p>
+<p>UAT is planned for Thu 12 Nov, subject to your network team approving the new telephone-provider addresses. Two test findings (a wrong EMI amount in 4 of 50 calls, and 2 calls that stopped after about 40 seconds) are being investigated. Go-live on Mon 16 Nov is not yet confirmed; we decide together on Fri 13 Nov at 16:00.</p>
+<p><b>Next milestone:</b> Thu 12 Nov 2026</p>
+<p><b>Go-live conditions met:</b> 0 of 7</p>
+<h2>Open items</h2>
+<table><tr><th>ID</th><th>Item</th><th>Due</th><th>Status</th></tr><tr><td>R01</td><td>The telephone provider changed its IP addresses. The client&#39;s network team must approve the new ones (3 working days) before calls work, so UAT on Thu 12 Nov may not start.</td><td>Mon 09 Nov 2026</td><td>Open</td></tr><tr><td>R02</td><td>In 4 of 50 test calls the agent stated a wrong EMI amount. The cause is unknown.</td><td>Tue 10 Nov 2026</td><td>Open</td></tr><tr><td>R03</td><td>2 test calls stopped after about 40 seconds. The cause is unknown.</td><td>Tue 10 Nov 2026</td><td>Open</td></tr><tr><td>R05</td><td>Go-live next Monday leaves almost no time to fix and retest after UAT (Thu–Fri). The client&#39;s Managing Director attends the go-live call.</td><td>Fri 13 Nov 2026</td><td>Open</td></tr></table>
+<h2>Changes since the last report</h2>
+<p>First run: this is the baseline, so there is nothing to compare yet.</p>
+<p>Next report: Friday by 17:00.</p></section><section class='card doc' id='Ledger'><h1>Weekly status: Ledger (Sagar Publications)</h1>
+<p>Report date: Mon 09 Nov 2026</p>
+<p><b>Status: AMBER</b></p>
+<p>The migration is in Sprint 4 of 6. About 1,200 duplicate customers found in the test migration are being fixed: a dry-run report and a 50-record sample reach you on Tue 10 Nov, and the new count on Wed 11 Nov. A change request for the WhatsApp birthday offers follows on Wed 11 Nov.</p>
+<p><b>Next milestone:</b> Wed 11 Nov 2026</p>
+<p><b>Go-live conditions met:</b> 0 of 3</p>
+<h2>Open items</h2>
+<table><tr><th>ID</th><th>Item</th><th>Due</th><th>Status</th></tr><tr><td>R09</td><td>About 1,200 duplicate customers in the test migration, because the old CRM stores phone numbers in different formats (+91, 0, spaces).</td><td>Wed 11 Nov 2026</td><td>Open</td></tr><tr><td>R10</td><td>The WhatsApp birthday-offer request needs customer consent, WhatsApp approval and clean data, and could affect the go-live date and team time.</td><td>Wed 11 Nov 2026</td><td>Open</td></tr><tr><td>R11</td><td>A later migration run recreates the duplicates, because the phone-format cause is not fixed.</td><td>Fri 13 Nov 2026</td><td>Open</td></tr></table>
+<h2>Changes since the last report</h2>
+<p>First run: this is the baseline, so there is nothing to compare yet.</p>
+<p>Next report: Friday by 17:00.</p></section></div></body></html>

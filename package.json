@@ -1,0 +1,12 @@
+{
+  "name": "delivery-control",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Weekly status reports and go/no-go readiness for a TPM",
+  "scripts": {
+    "start": "node status_report.js data/tracker.xlsx --gates data/gates.csv",
+    "test": "node --test"
+  },
+  "engines": { "node": ">=18.3" },
+  "dependencies": { "exceljs": "4.4.0" }
+}

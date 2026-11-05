@@ -1,0 +1,112 @@
+{
+  "date": "2026-11-09",
+  "projects": {
+    "Kavach": {
+      "status": "Red",
+      "milestone": "2026-11-12",
+      "open": [
+        "R01",
+        "R02",
+        "R03",
+        "R04",
+        "R05",
+        "R07",
+        "R08"
+      ],
+      "overdue": []
+    },
+    "Ledger": {
+      "status": "Amber",
+      "milestone": "2026-11-11",
+      "open": [
+        "R06",
+        "R07",
+        "R09",
+        "R10",
+        "R11"
+      ],
+      "overdue": []
+    }
+  },
+  "risks": {
+    "R01": {
+      "status": "Open",
+      "score": 9,
+      "project": "Kavach",
+      "share": "Y"
+    },
+    "R02": {
+      "status": "Open",
+      "score": 9,
+      "project": "Kavach",
+      "share": "Y"
+    },
+    "R03": {
+      "status": "Open",
+      "score": 9,
+      "project": "Kavach",
+      "share": "Y"
+    },
+    "R04": {
+      "status": "Open",
+      "score": 9,
+      "project": "Kavach",
+      "share": "N"
+    },
+    "R05": {
+      "status": "Open",
+      "score": 9,
+      "project": "Kavach",
+      "share": "Y"
+    },
+    "R06": {
+      "status": "Open",
+      "score": 6,
+      "project": "Ledger",
+      "share": "N"
+    },
+    "R07": {
+      "status": "Open",
+      "score": 6,
+      "project": "Both",
+      "share": "N"
+    },
+    "R08": {
+      "status": "Open",
+      "score": 6,
+      "project": "Kavach",
+      "share": "N"
+    },
+    "R09": {
+      "status": "Open",
+      "score": 6,
+      "project": "Ledger",
+      "share": "Y"
+    },
+    "R10": {
+      "status": "Open",
+      "score": 6,
+      "project": "Ledger",
+      "share": "Y"
+    },
+    "R11": {
+      "status": "Open",
+      "score": 4,
+      "project": "Ledger",
+      "share": "Y"
+    }
+  },
+  "gates": {
+    "Kavach:K1": "Pending",
+    "Kavach:K2": "Pending",
+    "Kavach:K3": "Pending",
+    "Kavach:K4": "Pending",
+    "Kavach:K5": "Pending",
+    "Kavach:K6": "Pending",
+    "Kavach:K7": "Pending",
+    "Ledger:L1": "Pending",
+    "Ledger:L2": "Pending",
+    "Ledger:L3": "Pending",
+    "Ledger:L4": "Pending"
+  }
+}
